@@ -1,0 +1,35 @@
+---
+---
+<section class="newsletter">
+  <img class="art" src="/assets/circles.svg" alt="" width="945" height="937" />
+  <div class="container inner">
+    <div class="content">
+      <p class="p-xl">Sign up to our newsletter to receive updates about the Impact Performance Reportings Norms</p>
+      <a class="button h6" href="#newsletter">Subscribe</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .newsletter { position: relative; background: var(--c-beige); overflow: hidden; }
+  .inner { position: relative; display: flex; align-items: center; min-height: 500px; padding-block: 60px; }
+  .content { width: 471px; max-width: 100%; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
+  .button {
+    background: var(--c-blue); color: var(--c-white);
+    padding: 20px; border-radius: var(--radius);
+    transition: background .2s;
+  }
+  .button:hover { background: var(--c-dark-blue); }
+  /* Figma: art at x=859 in a 1600 frame, top -218 */
+  .art {
+    position: absolute; top: -218px; left: calc(50% + 59px);
+    width: 945.654px; height: 937.287px; max-width: none; pointer-events: none;
+  }
+  @media (max-width: 1024px) {
+    .art { left: 45%; }
+  }
+  @media (max-width: 767px) {
+    .inner { min-height: 0; padding-block: 60px 320px; align-items: flex-start; }
+    .art { top: auto; bottom: -560px; left: 10%; width: 760px; height: auto; }
+  }
+</style>

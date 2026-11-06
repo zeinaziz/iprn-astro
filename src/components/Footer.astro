@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo-iprn-light.png";
+import { footerMenu } from "../data/site";
+---
+<footer>
+  <div class="main">
+    <div class="container cols">
+      <div class="col brand">
+        <a href="/" aria-label="Home">
+          <Image src={logo} alt="Impact Performance Reporting Norms" width={267} height={80} widths={[267, 534]} />
+        </a>
+        <p>The Reporting Norms are stewarded by Impact Frontiers as a non-proprietary and open-access public good.</p>
+      </div>
+      <span class="vr" aria-hidden="true"></span>
+      <nav class="col menu" aria-label="Footer">
+        <h2 class="h6">Menu</h2>
+        <ul>
+          {footerMenu.map((m) => <li><a href={m.href}>{m.label}</a></li>)}
+        </ul>
+      </nav>
+      <span class="vr" aria-hidden="true"></span>
+      <div class="col signup">
+        <div>
+          <h2 class="h6" id="newsletter">Sign up to our newsletter</h2>
+          <form class="form" action="#" method="post">
+            <label class="sr-only" for="footer-email">Email</label>
+            <input id="footer-email" type="email" name="email" placeholder="Email" required />
+            <button type="submit" class="h6">Subscribe</button>
+          </form>
+        </div>
+        <div>
+          <h2 class="h6">Contact us</h2>
+          <a class="mail" href="mailto:info@example.org" aria-label="Email us">
+            <img src="/assets/icons/mail.svg" alt="" width="20" height="20" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="legal">
+    <a href="https://creativecommons.org/licenses/by/4.0/">This website is licensed under a Creative Commons Attribution 4.0 International License</a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="/privacy-policy/">Privacy Policy</a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="/terms/">Terms &amp; Conditions</a>
+  </div>
+</footer>
+
+<style>
+  footer { color: var(--c-white); }
+  .main { background: var(--c-dark-brown); padding-block: var(--section-y); }
+  .cols { display: flex; gap: 80px; align-items: stretch; }
+  .col { display: flex; flex-direction: column; }
+  .brand, .signup { flex: 1; min-width: 0; justify-content: space-between; gap: 40px; }
+  .brand img { width: 267px; height: 80px; object-fit: contain; }
+  .vr { width: 1px; background: var(--c-medium-brown); flex-shrink: 0; }
+  .menu { gap: 20px; }
+  .menu ul { display: flex; flex-direction: column; gap: 16px; }
+  .menu a:hover, .legal a:hover { text-decoration: underline; }
+  .signup > div { display: flex; flex-direction: column; gap: 20px; }
+  .form { display: flex; height: 60px; }
+  .form input {
+    flex: 1; min-width: 0; border: 0; font: inherit; color: var(--c-text);
+    background: var(--c-beige); padding: 20px; border-radius: var(--radius) 0 0 var(--radius);
+  }
+  .form input::placeholder { color: var(--c-text-gray); }
+  .form button { background: var(--c-blue); color: var(--c-white); padding: 20px; border-radius: 0 var(--radius) var(--radius) 0; }
+  .form button:hover { background: var(--c-dark-blue); }
+  .mail { width: 40px; height: 40px; border-radius: 99px; background: var(--c-blue); display: grid; place-items: center; }
+  .legal {
+    background: var(--c-blue); padding: 24px 40px;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px;
+  }
+  .sep { width: 1px; height: 16px; background: var(--c-beige); }
+
+  @media (max-width: 1024px) {
+    .cols { gap: 40px; }
+  }
+  @media (max-width: 767px) {
+    .cols { flex-direction: column; }
+    .vr { width: 100%; height: 1px; }
+    .legal { flex-direction: column; gap: 8px; text-align: center; padding: 24px var(--gutter); }
+    .sep { display: none; }
+  }
+</style>

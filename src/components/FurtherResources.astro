@@ -1,0 +1,20 @@
+---
+import ResourceCard from "./ResourceCard.astro";
+import { furtherResources } from "../data/site";
+---
+<section class="further">
+  <div class="container">
+    <h2 class="h2">Further Resources</h2>
+    <div class="grid">
+      {furtherResources.map((r) => <ResourceCard {...r} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .further { background: var(--c-dark-brown); color: var(--c-white); padding-block: var(--section-y); }
+  h2 { text-align: center; margin-bottom: 53px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  @media (max-width: 1024px) { .grid { gap: 24px; } }
+  @media (max-width: 767px) { .grid { grid-template-columns: 1fr; } }
+</style>

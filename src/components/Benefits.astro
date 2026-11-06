@@ -1,0 +1,63 @@
+---
+import { benefits } from "../data/site";
+---
+<section class="benefits">
+  <div class="container">
+    <h2 class="h2">Benefits</h2>
+    <div class="grid">
+      {benefits.map((b) => (
+        <article class="item">
+          <div class="icon">
+            <img src={b.icon} alt="" width={b.iconSize[0]} height={b.iconSize[1]} />
+          </div>
+          <div class="text">
+            <h3>{b.title}</h3>
+            <ul>
+              {b.points.map((p) => (
+                <li>
+                  <img src="/assets/icons/bullet.svg" alt="" width="3.5" height="24" />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits { background: var(--c-dark-brown); color: var(--c-white); padding-block: var(--section-y); }
+  h2 { text-align: center; margin-bottom: 70px; }
+  /* Figma: 3 equal columns, 60px gap, 1px divider centred in each gap */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 121px; }
+  .item { display: flex; flex-direction: column; gap: 60px; position: relative; min-width: 0; }
+  .item + .item::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: -61px;
+    width: 1px; background: var(--c-medium-brown);
+  }
+  @media (max-width: 1024px) {
+    .grid { column-gap: 61px; }
+    .item + .item::before { left: -31px; }
+  }
+  .icon {
+    width: 100px; height: 100px; border-radius: 999px;
+    background: var(--c-blue);
+    display: grid; place-items: center;
+  }
+  h3 { font-size: 20px; font-weight: 500; line-height: 1.5; margin-bottom: 12px; }
+  ul { display: flex; flex-direction: column; gap: 4px; }
+  li { display: flex; gap: 12px; align-items: flex-start; }
+  li img { flex-shrink: 0; }
+
+  @media (max-width: 900px) {
+    h2 { margin-bottom: 48px; }
+    .grid { grid-template-columns: 1fr; gap: 40px; }
+    .item { flex-direction: row; gap: 24px; }
+    .item + .item::before { display: none; }
+    .item + .item { border-top: 1px solid var(--c-medium-brown); padding-top: 40px; }
+    .icon { width: 72px; height: 72px; flex-shrink: 0; }
+    .icon img { width: 44px; height: auto; }
+  }
+</style>

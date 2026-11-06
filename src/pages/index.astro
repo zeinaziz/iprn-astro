@@ -1,0 +1,28 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import Intro from "../components/Intro.astro";
+import Benefits from "../components/Benefits.astro";
+import Partners from "../components/Partners.astro";
+import FeaturedDocument from "../components/FeaturedDocument.astro";
+import RecentUpdate from "../components/RecentUpdate.astro";
+import FurtherResources from "../components/FurtherResources.astro";
+import Newsletter from "../components/Newsletter.astro";
+---
+<Base
+  title="Impact Performance Reporting Norms"
+  description="Building consensus on investor impact performance reporting."
+>
+  <Hero lines={["Building Consensus", "on Investor Impact Performance Reporting"]} />
+  <Intro>
+    The Reporting Norms establish shared expectations for the reporting of impact results by asset managers. They are the result of an 18-month public consultation among more than 350 asset managers, asset owners and allocators, consultants, and assurance and verification providers.
+  </Intro>
+  <Benefits />
+  <Partners />
+  <FeaturedDocument title="Impact Performance Reporting Norms" href="#">
+    The Reporting Norms provide a foundation for improving the consistency and quality of impact performance reporting, serving as a common reference for fund managers, asset owners, consultants, and verification providers.
+  </FeaturedDocument>
+  <RecentUpdate />
+  <FurtherResources />
+  <Newsletter />
+</Base>

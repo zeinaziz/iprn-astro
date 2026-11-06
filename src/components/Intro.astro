@@ -1,0 +1,13 @@
+---
+---
+<section class="intro">
+  <div class="container">
+    <p class="p-lg"><slot /></p>
+  </div>
+</section>
+
+<style>
+  .intro { background: var(--c-beige); padding-block: 60px; }
+  p { max-width: 800px; }
+  @media (max-width: 767px) { .intro { padding-block: 40px; } }
+</style>

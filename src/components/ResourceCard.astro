@@ -1,0 +1,32 @@
+---
+interface Props { category: string; year: number | string; title: string; href: string; }
+const { category, year, title, href } = Astro.props;
+---
+<a class="card" href={href} title={title}>
+  <div class="body">
+    <div class="meta">
+      <span class="eyebrow">{category}</span>
+      <span class="sep" aria-hidden="true"></span>
+      <span class="year">{year}</span>
+    </div>
+    <h3 class="h4">{title}</h3>
+  </div>
+  <div class="action">
+    <span class="h6">Read more</span>
+    <span class="btn"><img src="/assets/icons/arrow-right.svg" alt="" width="24" height="24" /></span>
+  </div>
+</a>
+
+<style>
+  .card { background: var(--c-white); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; min-width: 0; color: var(--c-text); }
+  .body { padding: 40px 30px; display: flex; flex-direction: column; gap: 20px; }
+  .meta { display: flex; align-items: center; gap: 10px; }
+  .eyebrow { color: var(--c-blue); }
+  .sep { align-self: stretch; width: 1px; background: var(--c-beige); }
+  .year { color: var(--c-text-brown); line-height: 1.5; }
+  h3 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .action { display: flex; height: 60px; }
+  .action .h6 { flex: 1; background: var(--c-beige); display: flex; align-items: center; padding-inline: 30px; }
+  .btn { width: 60px; background: var(--c-blue); display: grid; place-items: center; transition: background .2s; }
+  .card:hover .btn { background: var(--c-dark-blue); }
+</style>
