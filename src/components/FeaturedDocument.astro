@@ -1,4 +1,5 @@
 ---
+import { url } from "../lib/url";
 import { Image } from "astro:assets";
 import cover from "../assets/norms-cover.png";
 
@@ -9,7 +10,7 @@ const { title, href } = Astro.props;
   <div class="container">
     <div class="inner">
       <p class="p-xl lead"><slot /></p>
-      <a class="card" href={href}>
+      <a class="card" href={url(href)}>
         <Image src={cover} alt="" width={550} height={239} widths={[550, 1100]} sizes="(max-width: 767px) 100vw, 550px" class="cover" />
         <div class="body">
           <span class="eyebrow">Document</span>
@@ -17,7 +18,7 @@ const { title, href } = Astro.props;
         </div>
         <div class="action">
           <span class="h6">Read more</span>
-          <span class="btn"><img src="/assets/icons/download.svg" alt="" width="24" height="24" /></span>
+          <span class="btn"><img src={url("/assets/icons/download.svg")} alt="" width="24" height="24" /></span>
         </div>
       </a>
     </div>

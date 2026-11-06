@@ -1,8 +1,9 @@
 ---
+import { url } from "../lib/url";
 interface Props { category: string; year: number | string; title: string; href: string; }
 const { category, year, title, href } = Astro.props;
 ---
-<a class="card" href={href} title={title}>
+<a class="card" href={url(href)} title={title}>
   <div class="body">
     <div class="meta">
       <span class="eyebrow">{category}</span>
@@ -13,7 +14,7 @@ const { category, year, title, href } = Astro.props;
   </div>
   <div class="action">
     <span class="h6">Read more</span>
-    <span class="btn"><img src="/assets/icons/arrow-right.svg" alt="" width="24" height="24" /></span>
+    <span class="btn"><img src={url("/assets/icons/arrow-right.svg")} alt="" width="24" height="24" /></span>
   </div>
 </a>
 

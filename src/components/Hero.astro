@@ -1,4 +1,5 @@
 ---
+import { url } from "../lib/url";
 interface Props { lines: string[] }
 const { lines } = Astro.props;
 ---
@@ -7,7 +8,7 @@ const { lines } = Astro.props;
     <h1 class="h1">
       {lines.map((l, i) => <>{l}{i < lines.length - 1 && <br />}</>)}
     </h1>
-    <img class="art" src="/assets/hero-lines.svg" alt="" width="455" height="304" />
+    <img class="art" src={url("/assets/hero-lines.svg")} alt="" width="455" height="304" />
   </div>
 </section>
 

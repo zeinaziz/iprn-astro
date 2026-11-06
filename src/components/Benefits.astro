@@ -1,4 +1,5 @@
 ---
+import { url } from "../lib/url";
 import { benefits } from "../data/site";
 ---
 <section class="benefits">
@@ -8,14 +9,14 @@ import { benefits } from "../data/site";
       {benefits.map((b) => (
         <article class="item">
           <div class="icon">
-            <img src={b.icon} alt="" width={b.iconSize[0]} height={b.iconSize[1]} />
+            <img src={url(b.icon)} alt="" width={b.iconSize[0]} height={b.iconSize[1]} />
           </div>
           <div class="text">
             <h3>{b.title}</h3>
             <ul>
               {b.points.map((p) => (
                 <li>
-                  <img src="/assets/icons/bullet.svg" alt="" width="3.5" height="24" />
+                  <img src={url("/assets/icons/bullet.svg")} alt="" width="3.5" height="24" />
                   <span>{p}</span>
                 </li>
               ))}

@@ -1,4 +1,5 @@
 ---
+import { url } from "../lib/url";
 import { recentUpdate } from "../data/site";
 ---
 <section class="recent">
@@ -6,9 +7,9 @@ import { recentUpdate } from "../data/site";
     <h2 class="h2">Recent Update</h2>
     <div class="item">
       <h3 class="h4">{recentUpdate.title}</h3>
-      <a class="link h6" href={recentUpdate.href}>
+      <a class="link h6" href={url(recentUpdate.href)}>
         Learn more
-        <img src="/assets/icons/arrow-right-white.svg" alt="" width="16" height="24" />
+        <img src={url("/assets/icons/arrow-right-white.svg")} alt="" width="16" height="24" />
       </a>
     </div>
   </div>

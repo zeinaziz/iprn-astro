@@ -1,4 +1,5 @@
 ---
+import { url } from "../lib/url";
 import { Image } from "astro:assets";
 import logo from "../assets/logo-iprn.png";
 import { nav } from "../data/site";
@@ -6,20 +7,20 @@ import { nav } from "../data/site";
 <header class="navbar">
   <div class="container">
     <div class="bar">
-      <a href="/" class="logo" aria-label="Impact Performance Reporting Norms — Home">
+      <a href={url("/")} class="logo" aria-label="Impact Performance Reporting Norms — Home">
         <Image src={logo} alt="Impact Performance Reporting Norms" width={150} height={45} widths={[150, 300]} loading="eager" />
       </a>
       <span class="divider" aria-hidden="true"></span>
       <button class="toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
-        <img src="/assets/icons/menu.svg" alt="" width="24" height="24" />
+        <img src={url("/assets/icons/menu.svg")} alt="" width="24" height="24" />
       </button>
       <nav id="main-nav" class="menu" aria-label="Main">
         <ul>
           {nav.map((item) => (
             <li>
-              <a href={item.href}>
+              <a href={url(item.href)}>
                 <span>{item.label}</span>
-                <img src="/assets/icons/chevron-down.svg" alt="" width="12" height="24" />
+                <img src={url("/assets/icons/chevron-down.svg")} alt="" width="12" height="24" />
               </a>
             </li>
           ))}
